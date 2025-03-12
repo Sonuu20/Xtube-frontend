@@ -1,26 +1,331 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Light mode variables */
+    --background: 249, 250, 251; /* Light gray background */
+    --foreground: 17, 7, 16; /* Very dark purple/black text */
+
+    --card: 255, 255, 255; /* White card background */
+    --card-foreground: 17, 7, 16; /* Dark text on cards */
+
+    --primary: 142, 22, 90; /* Deep magenta/purple */
+    --primary-light: 186, 51, 127; /* Lighter magenta */
+    --primary-dark: 102, 16, 65; /* Darker magenta */
+    --primary-foreground: 255, 255, 255; /* White text on primary */
+
+    --secondary: 121, 155, 1; /* Olive green */
+    --secondary-light: 150, 186, 20; /* Lighter green */
+    --secondary-dark: 90, 115, 0; /* Darker green */
+    --secondary-foreground: 255, 255, 255; /* White text on secondary */
+
+    --muted: 230, 230, 235; /* Light gray for muted areas */
+    --muted-foreground: 107, 86, 102; /* Muted purple text */
+
+    --accent: 121, 155, 1; /* Olive green accent */
+    --accent-foreground: 255, 255, 255; /* White text on accent */
+    --accent-purple: 142, 22, 90; /* Purple accent */
+
+    --border: 230, 230, 235; /* Light border */
+    --ring: 142, 22, 90; /* Purple focus ring */
+    --radius: 0.5rem; /* Default border radius */
+
+    /* Gradients */
+    --gradient-purple-start: 142, 22, 90; /* Deep magenta start */
+    --gradient-purple-end: 102, 16, 65; /* Darker magenta end */
+    --gradient-green-start: 121, 155, 1; /* Olive green start */
+    --gradient-green-end: 90, 115, 0; /* Darker green end */
+
+    /* Text colors */
+    --text-primary: 17, 7, 16; /* Very dark purple/black */
+    --text-secondary: 107, 86, 102; /* Muted purple */
+    --text-highlight: 142, 22, 90; /* Deep magenta highlight */
+    --text-muted: 130, 130, 140; /* Muted gray */
+
+    /* Video elements */
+    --video-overlay: 17, 7, 16; /* Dark overlay with 60% opacity */
+    --video-control: 142, 22, 90; /* Purple controls with 90% opacity */
+
+    /* Status colors */
+    --success: 0, 170, 91; /* Green */
+    --warning: 255, 170, 0; /* Amber */
+    --error: 225, 29, 72; /* Red */
+  }
+
+  .dark {
+    /* Dark mode variables */
+    --background: 17, 7, 16; /* Very dark purple/black background */
+    --foreground: 249, 250, 251; /* Light text */
+
+    --card: 30, 18, 36; /* Dark purple card background */
+    --card-foreground: 249, 250, 251; /* Light text on cards */
+
+    --primary: 142, 22, 90; /* Deep magenta/purple */
+    --primary-light: 186, 51, 127; /* Lighter magenta */
+    --primary-dark: 102, 16, 65; /* Darker magenta */
+    --primary-foreground: 255, 255, 255; /* White text on primary */
+
+    --secondary: 121, 155, 1; /* Olive green */
+    --secondary-light: 150, 186, 20; /* Lighter green */
+    --secondary-dark: 90, 115, 0; /* Darker green */
+    --secondary-foreground: 255, 255, 255; /* White text on secondary */
+
+    --muted: 45, 30, 50; /* Dark muted purple */
+    --muted-foreground: 180, 170, 185; /* Light muted text */
+
+    --accent: 121, 155, 1; /* Olive green accent */
+    --accent-foreground: 255, 255, 255; /* White text on accent */
+    --accent-purple: 142, 22, 90; /* Purple accent */
+
+    --border: 45, 30, 50; /* Dark border */
+    --ring: 142, 22, 90; /* Purple focus ring */
+
+    /* Text colors in dark mode */
+    --text-primary: 249, 250, 251; /* Light text */
+    --text-secondary: 180, 170, 185; /* Light muted text */
+    --text-highlight: 186, 51, 127; /* Lighter magenta highlight */
+    --text-muted: 130, 130, 140; /* Muted gray */
+  }
+
+  /* Apply global background and text colors */
+  body {
+    @apply bg-background text-foreground;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  /* Buttons */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary-light focus:ring-2 focus:ring-ring focus:ring-offset-2 border-none font-medium px-6 py-2 rounded-lg transition-colors;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary-light focus:ring-2 focus:ring-ring focus:ring-offset-2 border-none font-medium px-6 py-2 rounded-lg transition-colors;
+  }
+
+  .btn-outline {
+    @apply bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground focus:ring-2 focus:ring-ring focus:ring-offset-2 font-medium px-6 py-2 rounded-lg transition-colors;
+  }
+
+  .btn-ghost {
+    @apply bg-transparent text-foreground hover:bg-muted focus:ring-2 focus:ring-ring focus:ring-offset-2 border-none font-medium px-6 py-2 rounded-lg transition-colors;
+  }
+
+  /* Gradient Buttons */
+  .btn-gradient-purple {
+    @apply bg-gradient-to-r from-primary to-primary-dark text-primary-foreground hover:from-primary-light hover:to-primary border-none font-medium px-6 py-2 rounded-lg transition-all;
+  }
+
+  .btn-gradient-green {
+    @apply bg-gradient-to-r from-secondary to-secondary-dark text-secondary-foreground hover:from-secondary-light hover:to-secondary border-none font-medium px-6 py-2 rounded-lg transition-all;
+  }
+
+  /* Gradient Text */
+  .text-gradient-purple {
+    @apply bg-gradient-to-r from-primary to-primary-dark text-transparent bg-clip-text;
+  }
+
+  .text-gradient-green {
+    @apply bg-gradient-to-r from-secondary to-secondary-dark text-transparent bg-clip-text;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-card text-card-foreground shadow-card rounded-lg p-5 transition-shadow hover:shadow-card-hover;
+  }
+
+  .card-hover {
+    @apply hover:shadow-card-hover transition-shadow;
+  }
+
+  /* Video elements */
+  .video-thumbnail {
+    @apply relative overflow-hidden rounded-lg;
+  }
+
+  .video-thumbnail-overlay {
+    @apply absolute inset-0 bg-video-overlay opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center;
+  }
+
+  .video-control {
+    @apply bg-video-control text-white rounded-full p-2;
+  }
+
+  /* Headings */
+  h1 {
+    @apply text-4xl font-extrabold tracking-tight;
+  }
+  h2 {
+    @apply text-3xl font-semibold;
+  }
+  h3 {
+    @apply text-2xl font-semibold;
+  }
+  h4 {
+    @apply text-xl font-semibold;
+  }
+
+  /* Text Styles */
+  p {
+    @apply leading-7 text-muted-foreground;
+  }
+  strong {
+    @apply font-semibold;
+  }
+  .text-large {
+    @apply text-lg font-semibold;
+  }
+  .text-small {
+    @apply text-sm text-muted-foreground;
+  }
+
+  /* Flex utilities */
+  .ficjc {
+    @apply flex items-center justify-center;
+  }
+
+  .ffcicjc {
+    @apply flex flex-col items-center justify-center;
+  }
+
+  .ffcisjc {
+    @apply flex flex-col items-start justify-center;
+  }
+
+  .ffcicjs {
+    @apply flex flex-col items-center justify-start;
+  }
+
+  /* Badge styles */
+  .badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+
+  .badge-primary {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  .badge-secondary {
+    @apply bg-secondary text-secondary-foreground;
+  }
+
+  .badge-outline {
+    @apply bg-transparent border border-muted text-foreground;
+  }
+
+  /* Input styles */
+  .input {
+    @apply flex h-10 w-full rounded-md border border-border bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  /* Avatar styles */
+  .avatar {
+    @apply relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full;
+  }
+
+  .avatar-sm {
+    @apply h-8 w-8;
+  }
+
+  .avatar-lg {
+    @apply h-12 w-12;
+  }
 }
+
+@layer utilities {
+  /* Background patterns */
+  .bg-grid-pattern {
+    background-size: 30px 30px;
+    background-image: linear-gradient(to right, rgba(var(--border), 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(var(--border), 0.1) 1px, transparent 1px);
+  }
+
+  .bg-dots-pattern {
+    background-size: 20px 20px;
+    background-image: radial-gradient(rgba(var(--border), 0.2) 2px, transparent 2px);
+  }
+
+  /* Shimmer effect for loading states */
+  .shimmer {
+    @apply relative overflow-hidden bg-muted;
+  }
+
+  .shimmer::after {
+    @apply absolute inset-0;
+    content: "";
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    animation: shimmer 2s linear infinite;
+    transform: translateX(-100%);
+  }
+
+  /* Gradient backgrounds */
+  .bg-gradient-purple {
+    @apply bg-gradient-to-r from-primary to-primary-dark;
+  }
+
+  .bg-gradient-green {
+    @apply bg-gradient-to-r from-secondary to-secondary-dark;
+  }
+
+  .bg-gradient-diagonal {
+    @apply bg-gradient-to-br from-primary via-primary-dark to-secondary-dark;
+  }
+}
+
+/* Animations */
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  animation: gradient 15s ease infinite;
+  background-size: 400% 400%;
+}
+
+.footer-gradient {
+  background-size: 200% 200%;
+  animation: subtleShift 15s ease infinite;
+}
+
+@keyframes subtleShift {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(var(--muted));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--primary));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--primary-light));
+}
+
