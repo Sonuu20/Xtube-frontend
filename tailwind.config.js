@@ -4,16 +4,23 @@ const baseTheme = baseConfig.theme
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"], // Enables dark mode with the "class" strategy
-  content: ["./app/**/*.{js,jsx,mdx}", "./components/**/*.{js,jsx,mdx}", "*.{js,ts,jsx,tsx,mdx}"],
+  content: [
+		"./app/**/*.{js,jsx,ts,tsx,mdx}",
+		"./components/**/*.{js,jsx,ts,tsx,mdx}",
+		"./pages/**/*.{js,jsx,ts,tsx,mdx}",
+		"./layouts/**/*.{js,jsx,ts,tsx,mdx}",
+		"./src/**/*.{js,jsx,ts,tsx,mdx}",
+		"./public/**/*.html",
+	],
   theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
-    },
-    extend: {
+  	container: {
+  		center: true,
+  		padding: '2rem',
+  		screens: {
+  			'2xl': '1400px'
+  		}
+  	},
+  	extend: {
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
