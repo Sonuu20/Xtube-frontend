@@ -5,31 +5,31 @@
 @layer base {
   :root {
     /* Light mode variables */
-    --background: 249, 250, 251; /* Light gray background */
-    --foreground: 17, 7, 16; /* Very dark purple/black text */
+    --background: 0 0% 100%; /* Light gray background */
+    --foreground: 0 0% 3.9%; /* Very dark purple/black text */
 
-    --card: 255, 255, 255; /* White card background */
-    --card-foreground: 17, 7, 16; /* Dark text on cards */
+    --card: 0 0% 100%; /* White card background */
+    --card-foreground: 0 0% 3.9%; /* Dark text on cards */
 
-    --primary: 142, 22, 90; /* Deep magenta/purple */
+    --primary: 0 0% 9%; /* Deep magenta/purple */
     --primary-light: 186, 51, 127; /* Lighter magenta */
     --primary-dark: 102, 16, 65; /* Darker magenta */
-    --primary-foreground: 255, 255, 255; /* White text on primary */
+    --primary-foreground: 0 0% 98%; /* White text on primary */
 
-    --secondary: 121, 155, 1; /* Olive green */
+    --secondary: 0 0% 96.1%; /* Olive green */
     --secondary-light: 150, 186, 20; /* Lighter green */
     --secondary-dark: 90, 115, 0; /* Darker green */
-    --secondary-foreground: 255, 255, 255; /* White text on secondary */
+    --secondary-foreground: 0 0% 9%; /* White text on secondary */
 
-    --muted: 230, 230, 235; /* Light gray for muted areas */
-    --muted-foreground: 107, 86, 102; /* Muted purple text */
+    --muted: 0 0% 96.1%; /* Light gray for muted areas */
+    --muted-foreground: 0 0% 45.1%; /* Muted purple text */
 
-    --accent: 121, 155, 1; /* Olive green accent */
-    --accent-foreground: 255, 255, 255; /* White text on accent */
+    --accent: 0 0% 96.1%; /* Olive green accent */
+    --accent-foreground: 0 0% 9%; /* White text on accent */
     --accent-purple: 142, 22, 90; /* Purple accent */
 
-    --border: 230, 230, 235; /* Light border */
-    --ring: 142, 22, 90; /* Purple focus ring */
+    --border: 0 0% 89.8%; /* Light border */
+    --ring: 0 0% 3.9%; /* Purple focus ring */
     --radius: 0.5rem; /* Default border radius */
 
     /* Gradients */
@@ -51,42 +51,42 @@
     /* Status colors */
     --success: 0, 170, 91; /* Green */
     --warning: 255, 170, 0; /* Amber */
-    --error: 225, 29, 72; /* Red */
+    --error: 225, 29, 72; /* Red */ --popover: 0 0% 100%; --popover-foreground: 0 0% 3.9%; --destructive: 0 84.2% 60.2%; --destructive-foreground: 0 0% 98%; --input: 0 0% 89.8%; --chart-1: 12 76% 61%; --chart-2: 173 58% 39%; --chart-3: 197 37% 24%; --chart-4: 43 74% 66%; --chart-5: 27 87% 67%;
   }
 
   .dark {
     /* Dark mode variables */
-    --background: 17, 7, 16; /* Very dark purple/black background */
-    --foreground: 249, 250, 251; /* Light text */
+    --background: 0 0% 3.9%; /* Very dark purple/black background */
+    --foreground: 0 0% 98%; /* Light text */
 
-    --card: 30, 18, 36; /* Dark purple card background */
-    --card-foreground: 249, 250, 251; /* Light text on cards */
+    --card: 0 0% 3.9%; /* Dark purple card background */
+    --card-foreground: 0 0% 98%; /* Light text on cards */
 
-    --primary: 142, 22, 90; /* Deep magenta/purple */
+    --primary: 0 0% 98%; /* Deep magenta/purple */
     --primary-light: 186, 51, 127; /* Lighter magenta */
     --primary-dark: 102, 16, 65; /* Darker magenta */
-    --primary-foreground: 255, 255, 255; /* White text on primary */
+    --primary-foreground: 0 0% 9%; /* White text on primary */
 
-    --secondary: 121, 155, 1; /* Olive green */
+    --secondary: 0 0% 14.9%; /* Olive green */
     --secondary-light: 150, 186, 20; /* Lighter green */
     --secondary-dark: 90, 115, 0; /* Darker green */
-    --secondary-foreground: 255, 255, 255; /* White text on secondary */
+    --secondary-foreground: 0 0% 98%; /* White text on secondary */
 
-    --muted: 45, 30, 50; /* Dark muted purple */
-    --muted-foreground: 180, 170, 185; /* Light muted text */
+    --muted: 0 0% 14.9%; /* Dark muted purple */
+    --muted-foreground: 0 0% 63.9%; /* Light muted text */
 
-    --accent: 121, 155, 1; /* Olive green accent */
-    --accent-foreground: 255, 255, 255; /* White text on accent */
+    --accent: 0 0% 14.9%; /* Olive green accent */
+    --accent-foreground: 0 0% 98%; /* White text on accent */
     --accent-purple: 142, 22, 90; /* Purple accent */
 
-    --border: 45, 30, 50; /* Dark border */
-    --ring: 142, 22, 90; /* Purple focus ring */
+    --border: 0 0% 14.9%; /* Dark border */
+    --ring: 0 0% 83.1%; /* Purple focus ring */
 
     /* Text colors in dark mode */
     --text-primary: 249, 250, 251; /* Light text */
     --text-secondary: 180, 170, 185; /* Light muted text */
     --text-highlight: 186, 51, 127; /* Lighter magenta highlight */
-    --text-muted: 130, 130, 140; /* Muted gray */
+    --text-muted: 130, 130, 140; /* Muted gray */ --popover: 0 0% 3.9%; --popover-foreground: 0 0% 98%; --destructive: 0 62.8% 30.6%; --destructive-foreground: 0 0% 98%; --input: 0 0% 14.9%; --chart-1: 220 70% 50%; --chart-2: 160 60% 45%; --chart-3: 30 80% 55%; --chart-4: 280 65% 60%; --chart-5: 340 75% 55%;
   }
 
   /* Apply global background and text colors */
@@ -262,7 +262,7 @@
 
   /* Gradient backgrounds */
   .bg-gradient-purple {
-    @apply bg-gradient-to-r from-primary to-primary-dark;
+    @apply bg-gradient-to-r from-secondary to-primary-dark;
   }
 
   .bg-gradient-green {
@@ -327,5 +327,16 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(var(--primary-light));
+}
+
+
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
 
