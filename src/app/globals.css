@@ -262,7 +262,7 @@
 
   /* Gradient backgrounds */
   .bg-gradient-purple {
-    @apply bg-gradient-to-r from-secondary to-primary-dark;
+    @apply bg-gradient-to-r from-[#4158D0] to-primary-light;
   }
 
   .bg-gradient-green {
