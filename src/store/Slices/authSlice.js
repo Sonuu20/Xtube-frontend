@@ -1,8 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
 import { axiosInstance } from "@/helpers/axios.helper.js";
 import { toast } from "react-toastify";
-import { data } from "autoprefixer";
 
 const API_URL = "https://xtube-backend-wuhs.onrender.com/api/v1";
 
@@ -179,3 +177,107 @@ export const updateAvatar = createAsyncThunk("user/Avatar", async (avatar) => {
     throw error;
   }
 });
+
+const authSlice = createSlice({
+  name: "auth",
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    //login
+    builder.addCase(Login.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(Login.fulfilled, (state, action) => {
+      state.loading = false;
+      state.status = true;
+      state.userData = action.payload;
+    });
+    builder.addCase(Login.rejected, (state) => {
+      state.loading = false;
+      state.status = false;
+      state.userData = null;
+    });
+    //logout
+    builder.addCase(logout.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(logout.fulfilled, (state) => {
+      state.loading = false;
+      state.status = false;
+      state.userData = null;
+    });
+    builder.addCase(logout.rejected, (state) => {
+      state.loading = false;
+      state.status = false;
+    });
+
+    //getCurrentUser
+    builder.addCase(getCurrentUser.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(getCurrentUser.fulfilled, (state, action) => {
+      state.loading = false;
+      state.userData = action.payload;
+      state.status = true;
+    });
+    builder.addCase(getCurrentUser.rejected, (state) => {
+      state.loading = false;
+      state.userData = null;
+      state.status = false;
+    });
+
+    //for changing password
+    builder.addCase(changePassword.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(changePassword.rejected, (state) => {
+      state.loading = false;
+    });
+
+    //Refresh accessToken
+    builder.addCase(refreshAccessToken.pending, (state) => {
+      state.loading = false;
+    });
+    builder.addCase(refreshAccessToken.rejected, (state) => {
+      state.loading = false;
+    });
+
+    //updating profile
+    builder.addCase(updateUserDetails.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(updateUserDetails.fulfilled, (state, action) => {
+      state.loading = false;
+      state.userData = action.payload;
+    });
+    builder.addCase(updateUserDetails.rejected, (state) => {
+      state.loading = false;
+    });
+
+    //for updating avatar
+    builder.addCase(updateAvatar.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(updateAvatar.fulfilled, (state, action) => {
+      state.loading = false;
+      state.userData = action.payload;
+    });
+    builder.addCase(updateAvatar.rejected, (state) => {
+      state.loading = false;
+    });
+
+    //update coverImage
+    builder.addCase(updateCoverImg.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(updateCoverImg.fulfilled, (state, action) => {
+      state.loading = false;
+      state.userData = action.payload;
+    });
+    builder.addCase(updateCoverImg.rejected, (state) => {
+      state.loading = false;
+    });
+  },
+});
+
+export default authSlice.reducer;
